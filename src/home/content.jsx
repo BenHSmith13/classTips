@@ -8,7 +8,6 @@ import MyView           from './my_view.jsx';
 export default class Content extends React.Component{
 
 
-
   render(){
     return <div className="row">
       <div className=".col-md-3">
