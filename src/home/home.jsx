@@ -1,5 +1,6 @@
 import React        from 'react';
 import Header       from './header.jsx';
+import Content      from './content.jsx';
 
 export default class Home extends React.Component{
 
@@ -17,6 +18,7 @@ export default class Home extends React.Component{
 
     return <div style={styles.body}>
       <Header/>
+      <Content/>
     </div>
   }
 }
