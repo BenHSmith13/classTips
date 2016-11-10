@@ -1,10 +1,20 @@
 'use strict';
 
 import React    from 'react';
+import { connect }  from 'react-redux';
+import * as TestActions from '../actions/test';
 
-export default class Filters extends React.Component{
+const select = (state) => {
+
+};
+
+export class Filters extends React.Component{
 
   render(){
-    return <div></div>
+    return <div className="col-md-3">
+      <h1>Filters</h1>
+    </div>
   }
 }
+
+export default connect(select, TestActions)(Filters);
