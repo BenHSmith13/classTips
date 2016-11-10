@@ -29,11 +29,13 @@ export function writeThreadData(threadId, schoolId, classId, userId, title, text
     thread_text: text
   });
 }
-export function writePostData(postId, threadId, userId, parentId, text) {
+
+export function writePostData(postId, threadId, userId, parentId, text, plagiarism = false) {
   firebase.database().ref('posts/' + postId).set({
     thread_id: threadId,
     user_id: userId,
     parent_id: parentId,
     post_text: text,
+    marked_as_plagiarism: plagiarism
   });
 }
