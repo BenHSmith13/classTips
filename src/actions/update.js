@@ -4,6 +4,7 @@ export function writeSchoolData(schoolId, name) {
   firebase.database().ref('schools/' + schoolId).set({
     school_name: name
   });
+  return { type: "SET_SCHOOL" }
 }
 
 export function writeUserData(userId, name, email) {
@@ -11,6 +12,7 @@ export function writeUserData(userId, name, email) {
     username: name,
     email: email
   });
+  return { type: "SET_USER" }
 }
 
 export function writeClassData(classId, schoolId, name) {
@@ -18,6 +20,7 @@ export function writeClassData(classId, schoolId, name) {
     school_id: schoolId,
     class_name: name,
   });
+  return { type: "SET_CLASS" }
 }
 
 export function writeThreadData(threadId, schoolId, classId, userId, title, text) {
@@ -28,6 +31,7 @@ export function writeThreadData(threadId, schoolId, classId, userId, title, text
     thread_title: title,
     thread_text: text
   });
+  return { type: "SET_THREAD" }
 }
 
 export function writePostData(postId, threadId, userId, parentId, text, plagiarism = false) {
@@ -38,4 +42,5 @@ export function writePostData(postId, threadId, userId, parentId, text, plagiari
     post_text: text,
     marked_as_plagiarism: plagiarism
   });
+  return { type: "SET_POST" }
 }
