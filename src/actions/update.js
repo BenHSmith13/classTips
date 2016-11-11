@@ -14,11 +14,11 @@ export function writeClassData(classId, schoolId, name) {
   return { type: "SET_CLASS" }
 }
 
-export function writePostData(postId, schoolId, classId, userName, text, plagiarism = false) {
+export function writePostData(postId, schoolId, classId, userName, title, text) {
   firebase.database().ref(`posts/${schoolId}/${classId}/${postId}`).set({
     user_name: userName,
+    title: title,
     post_text: text,
-    marked_as_plagiarism: plagiarism
   });
   return { type: "SET_POST" }
 }
