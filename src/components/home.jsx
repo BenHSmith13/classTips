@@ -29,7 +29,7 @@ export class Home extends React.Component{
 
     let postRef = firebase.database().ref('posts/');
     postRef.on('value', (snapshot) => {
-      this.props. update('POST_UPDATE', snapshot.val());
+      this.props.update('POST_UPDATE', snapshot.val());
     });
   }
 

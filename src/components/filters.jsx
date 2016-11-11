@@ -61,10 +61,10 @@ export class Filters extends React.Component{
     const { form } = this.state;
     const styles = this.getStyles();
 
-    if(form == 'SCHOOL'){
+    if(form === 'SCHOOL'){
       return <div>
         <div className="form-group">
-          <label for="schoolCode" style={styles.text}>School Code (IE: USU, WSU)</label>
+          <label htmlFor="schoolCode" style={styles.text}>School Code (IE: USU, WSU)</label>
           <input
             type="text"
             className="form-control"
@@ -74,7 +74,7 @@ export class Filters extends React.Component{
           />
         </div>
         <div className="form-group">
-          <label for="schoolName" style={styles.text}>School Name</label>
+          <label htmlFor="schoolName" style={styles.text}>School Name</label>
           <input
             type="text"
             className="form-control"
@@ -85,10 +85,10 @@ export class Filters extends React.Component{
         </div>
         <button className="btn btn-default" onClick={() => this.addSchool()}>Add School</button>
       </div>
-    } else if(form == 'CLASS'){
+    } else if(form === 'CLASS'){
       return <div>
         <div className="form-group">
-          <label for="classCode" style={styles.text}>Class Code (IE: CS1400)</label>
+          <label htmlFor="classCode" style={styles.text}>Class Code (IE: CS1400)</label>
           <input
             type="text"
             className="form-control"
@@ -98,7 +98,7 @@ export class Filters extends React.Component{
           />
         </div>
         <div className="form-group">
-          <label for="className" style={styles.text}>Class Name</label>
+          <label htmlFor="className" style={styles.text}>Class Name</label>
           <input
             type="text"
             className="form-control"
@@ -150,14 +150,14 @@ export class Filters extends React.Component{
       <button
         className="btn btn-primary"
         style={styles.buttons}
-        onClick={() => this.setState({form: this.state.form == "SCHOOL" ? "NONE" : "SCHOOL"})}
+        onClick={() => this.setState({form: this.state.form === "SCHOOL" ? "NONE" : "SCHOOL"})}
       >
         Add School
       </button>
       <button
         className="btn btn-primary"
         style={styles.buttons}
-        onClick={() => this.setState({form: this.state.form == "CLASS" ? "NONE" : "CLASS"})}
+        onClick={() => this.setState({form: this.state.form === "CLASS" ? "NONE" : "CLASS"})}
       >
         Add Class
       </button>
