@@ -33,20 +33,8 @@ export class Home extends React.Component{
     });
   }
 
-  getStyle(){
-    return {
-      body: {
-        backgroundColor: 'slateGray',
-        backgroundSize: '100vh 100vw',
-        height: '100vh'
-      }
-    }
-  }
-
   render(){
-    const styles = this.getStyle();
-
-    return <div style={styles.body}>
+    return <div>
       <Header/>
       <SearchButtons/>
       <Content/>

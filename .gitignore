@@ -17,3 +17,5 @@ npm-debug.log
 # intelliJ Stuff
 /.idea
 
+# this is where I put the firebase config
+/src/api.js
