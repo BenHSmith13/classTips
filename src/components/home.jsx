@@ -1,7 +1,9 @@
+/* global firebase */
+
 import React          from 'react';
 import Header         from './header.jsx';
 import Content        from './content.jsx';
-import SearchButtons  from './search_buttons.jsx';
+import SearchButtons  from './filters.jsx';
 import { connect }    from 'react-redux';
 import * as Listener  from '../actions/listener';
 
@@ -15,8 +17,30 @@ const select = () => {
 export class Home extends React.Component{
 
   componentDidMount(){
-    // debugger;
-    this.props.beginListening();
+    let schoolRef = firebase.database().ref('schools/');
+    schoolRef.on('value', (snapshot) => {
+      this.props.update('SCHOOL_UPDATE', snapshot.val());
+    });
+
+    let userRef = firebase.database().ref('users/');
+    userRef.on('value', (snapshot) => {
+      this.props.update('USERS_UPDATE', snapshot.val());
+    });
+
+    let classRef = firebase.database().ref('classes/');
+    classRef.on('value', (snapshot) => {
+      this.props.update('CLASS_UPDATE', snapshot.val());
+    });
+
+    let threadRef = firebase.database().ref('threads/');
+    threadRef.on('value', (snapshot) => {
+      this.props.update('THREAD_UPDATE', snapshot.val());
+    });
+
+    let postRef = firebase.database().ref('posts/');
+    postRef.on('value', (snapshot) => {
+      this.props. update('POST_UPDATE', snapshot.val());
+    });
   }
 
   getStyle(){

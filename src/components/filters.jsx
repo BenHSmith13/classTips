@@ -1,19 +1,38 @@
-import React    from 'react';
+import React        from 'react';
 import { connect }  from 'react-redux';
-import * as UpdateActions from '../actions/update';
+import _            from 'lodash';
 
 const select = (state) => {
-  return {}
+  console.log(state.schools.schools);
+  return {
+    schools: state.schools.schools
+  }
 };
 
 export class Filters extends React.Component{
 
+  getStyles(){
+    return {
+      buttons: {
+        margin: '10px',
+      }
+    }
+  }
+
   render(){
-    return <div className="col-md-3">
-      <h1>Filters</h1>
-      <button onClick={() => this.props.writeSchoolData('WSU', 'Weber State University')}>Add School</button>
+    const styles = this.getStyles();
+
+    return <div>
+      <select className="form-control">
+        {_.map(this.props.schools, (school)=>{
+          console.log(school);
+          return <option>{school.school_name}</option>
+        })}
+      </select>
+      <button className="btn btn-primary" style={styles.buttons}>Find Class</button>
+      <button className="btn btn-primary" style={styles.buttons}>Find School</button>
     </div>
   }
 }
 
-export default connect(select, UpdateActions)(Filters);
+export default connect(select, {})(Filters);
