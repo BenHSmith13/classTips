@@ -22,19 +22,9 @@ export class Home extends React.Component{
       this.props.update('SCHOOL_UPDATE', snapshot.val());
     });
 
-    let userRef = firebase.database().ref('users/');
-    userRef.on('value', (snapshot) => {
-      this.props.update('USERS_UPDATE', snapshot.val());
-    });
-
     let classRef = firebase.database().ref('classes/');
     classRef.on('value', (snapshot) => {
       this.props.update('CLASS_UPDATE', snapshot.val());
-    });
-
-    let threadRef = firebase.database().ref('threads/');
-    threadRef.on('value', (snapshot) => {
-      this.props.update('THREAD_UPDATE', snapshot.val());
     });
 
     let postRef = firebase.database().ref('posts/');
@@ -48,6 +38,7 @@ export class Home extends React.Component{
       body: {
         backgroundColor: 'slateGray',
         backgroundSize: '100vh 100vw',
+        height: '100vh'
       }
     }
   }

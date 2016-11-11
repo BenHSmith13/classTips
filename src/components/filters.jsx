@@ -44,18 +44,27 @@ export class Filters extends React.Component{
 
   getStyles(){
     return {
+      container: {
+        padding: '20px',
+        backgroundColor: '#222'
+      },
       buttons: {
         margin: '10px',
+      },
+      text: {
+        color: 'white'
       }
     }
   }
 
   form(){
     const { form } = this.state;
+    const styles = this.getStyles();
+
     if(form == 'SCHOOL'){
       return <div>
         <div className="form-group">
-          <label for="schoolCode">School Code (IE: USU, WSU)</label>
+          <label for="schoolCode" style={styles.text}>School Code (IE: USU, WSU)</label>
           <input
             type="text"
             className="form-control"
@@ -65,7 +74,7 @@ export class Filters extends React.Component{
           />
         </div>
         <div className="form-group">
-          <label for="schoolName">School Name</label>
+          <label for="schoolName" style={styles.text}>School Name</label>
           <input
             type="text"
             className="form-control"
@@ -79,7 +88,7 @@ export class Filters extends React.Component{
     } else if(form == 'CLASS'){
       return <div>
         <div className="form-group">
-          <label for="classCode">Class Code (IE: CS1400)</label>
+          <label for="classCode" style={styles.text}>Class Code (IE: CS1400)</label>
           <input
             type="text"
             className="form-control"
@@ -89,7 +98,7 @@ export class Filters extends React.Component{
           />
         </div>
         <div className="form-group">
-          <label for="className">Class Name</label>
+          <label for="className" style={styles.text}>Class Name</label>
           <input
             type="text"
             className="form-control"
@@ -106,7 +115,7 @@ export class Filters extends React.Component{
   render(){
     const styles = this.getStyles();
 
-    return <div>
+    return <div style={styles.container}>
       <div className="form-inline">
         <select
           className="form-control"

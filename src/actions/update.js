@@ -7,14 +7,6 @@ export function writeSchoolData(schoolId, name) {
   return { type: "SET_SCHOOLClassCode" }
 }
 
-export function writeUserData(userId, name, email) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email
-  });
-  return { type: "SET_USER" }
-}
-
 export function writeClassData(classId, schoolId, name) {
   firebase.database().ref(`classes/${schoolId}/${classId}`).set({
     class_name: name,
@@ -22,22 +14,9 @@ export function writeClassData(classId, schoolId, name) {
   return { type: "SET_CLASS" }
 }
 
-export function writeThreadData(threadId, schoolId, classId, userId, title, text) {
-  firebase.database().ref('threads/' + threadId).set({
-    school_id: schoolId,
-    class_id: classId,
-    user_id: userId,
-    thread_title: title,
-    thread_text: text
-  });
-  return { type: "SET_THREAD" }
-}
-
-export function writePostData(postId, threadId, userId, parentId, text, plagiarism = false) {
-  firebase.database().ref('posts/' + postId).set({
-    thread_id: threadId,
-    user_id: userId,
-    parent_id: parentId,
+export function writePostData(postId, schoolId, classId, userName, text, plagiarism = false) {
+  firebase.database().ref(`posts/${schoolId}/${classId}/${postId}`).set({
+    user_name: userName,
     post_text: text,
     marked_as_plagiarism: plagiarism
   });
