@@ -22,3 +22,11 @@ export function writePostData(postId, schoolId, classId, userName, title, text) 
   });
   return { type: "SET_POST" }
 }
+
+export function writePostReply(replyId, postId, schoolId, classId, userName, text) {
+  firebase.database().ref(`posts/${schoolId}/${classId}/${postId}/children/${replyId}`).set({
+    user_name: userName,
+    post_text: text
+  });
+  return { type: "SET_REPLY" }
+}
