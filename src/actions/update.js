@@ -4,7 +4,7 @@ export function writeSchoolData(schoolId, name) {
   firebase.database().ref('schools/' + schoolId).set({
     school_name: name
   });
-  return { type: "SET_SCHOOL" }
+  return { type: "SET_SCHOOLClassCode" }
 }
 
 export function writeUserData(userId, name, email) {
@@ -16,8 +16,7 @@ export function writeUserData(userId, name, email) {
 }
 
 export function writeClassData(classId, schoolId, name) {
-  firebase.database().ref('classes/' + classId).set({
-    school_id: schoolId,
+  firebase.database().ref(`classes/${schoolId}/${classId}`).set({
     class_name: name,
   });
   return { type: "SET_CLASS" }
