@@ -25,11 +25,11 @@ export class MyView extends React.Component{
 
   render(){
     const styles = this.getStyle();
-console.log(this.props.posts);
+
     return <div className="col-md-8">
       {this.props.showPosts ?
         [_.map(this.props.posts, (post, id) => <Post key={`post_${id}`} post={post} id={id} />),
-        <AddPost/>]
+        <AddPost key="addPost"/>]
         : <h1 style={styles.select}>
         Please Select a School and Class to Continue
       </h1>

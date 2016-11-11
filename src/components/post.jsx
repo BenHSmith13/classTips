@@ -44,7 +44,7 @@ export class Post extends React.Component{
   }
 
   render(){
-    const { post, id } = this.props;
+    const { post } = this.props;
     const styles = this.getStyles();
 
     return <div style={styles.container}>
@@ -53,8 +53,8 @@ export class Post extends React.Component{
       <div style={styles.postText}>
         {post.post_text}
       </div>
-      {_.map(post.children, (reply) => {
-        return <Reply reply={reply}/>
+      {_.map(post.children, (reply, id) => {
+        return <Reply key={`replies${id}`} reply={reply}/>
       })}
       <hr/>
       <div style={styles.reply}>
