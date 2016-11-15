@@ -12,3 +12,11 @@ export function setClass(classId) {
     classId: classId
   };
 }
+
+export function setSchoolAndClass(schoolId, classId) {
+  return {
+    type: 'SELECT_SCHOOL_AND_CLASS',
+    schoolId: schoolId,
+    classId: classId
+  }
+}

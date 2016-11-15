@@ -4,7 +4,7 @@ export function writeSchoolData(schoolId, name) {
   firebase.database().ref('schools/' + schoolId).set({
     school_name: name
   });
-  return { type: "SET_SCHOOLClassCode" }
+  return { type: "SET_SCHOOL" }
 }
 
 export function writeClassData(classId, schoolId, name) {
@@ -19,6 +19,7 @@ export function writePostData(postId, schoolId, classId, userName, title, text) 
     user_name: userName,
     title: title,
     post_text: text,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
   });
   return { type: "SET_POST" }
 }
@@ -26,7 +27,8 @@ export function writePostData(postId, schoolId, classId, userName, title, text) 
 export function writePostReply(replyId, postId, schoolId, classId, userName, text) {
   firebase.database().ref(`posts/${schoolId}/${classId}/${postId}/children/${replyId}`).set({
     user_name: userName,
-    post_text: text
+    post_text: text,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
   });
   return { type: "SET_REPLY" }
 }

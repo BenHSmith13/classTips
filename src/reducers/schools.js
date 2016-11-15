@@ -19,6 +19,9 @@ export default function (state = initialState, action) {
     case "SELECT_CLASS":
       return {...state, ...{selectedClass: action.classId}};
 
+    case 'SELECT_SCHOOL_AND_CLASS':
+      return {...state, ...{selectedClass: action.classId, selectedSchool: action.schoolId}};
+
     default:
       return state;
   }
